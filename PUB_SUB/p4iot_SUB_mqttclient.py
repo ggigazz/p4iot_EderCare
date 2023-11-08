@@ -42,12 +42,18 @@ def on_message(client, userdata, message):
 
 
 ########################################
+# Retrieve broker port, connection username/password
+def get_config_sub():
+    filename = "PUB_SUB/config.json"
+    dictionary = json.load(open(filename))
+    broker_address = dictionary["broker_address"]
+    port = dictionary["port"]
+    user = dictionary["user"]
+    password = dictionary["password"]
 
-broker_address = "adlab.m2madgenera.com"
+    return broker_address, port, user, password
 
-port = 7473  # Broker port
-user = "p4iot"  # Connection username
-password = "iotproj"  # Connection password
+broker_address, port, user, password = get_config_sub()
 
 # Create new instance
 print("creating new instance")
