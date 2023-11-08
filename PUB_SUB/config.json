@@ -1,0 +1,9 @@
+{
+        "broker_address": "adlab.m2madgenera.com",
+        "port": 7473,
+        "user": "p4iot",
+        "password": "iotproj",
+        "api_key_A" : "YH4UF3OQ0JR17LXY",
+        "api_key_F" : "HLQ5ZDLFNJP6HD0F",
+        "api_key2": "T7YF1WP7H7AHGDYJ"
+}
