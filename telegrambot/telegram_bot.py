@@ -110,7 +110,7 @@ def adduser_surname(msg):
 @bot.message_handler(state=States.adduser_role, is_digit=False, func=lambda msg: msg.text.startswith('/') == False)
 def adduser_role(msg):
     print("DBG adduser_role function called")
-    role = msg.text
+    role = msg.text.lower()
     with bot.retrieve_data(msg.from_user.id, msg.chat.id) as adduser_data:
         adduser_data['adduser_role'] = role
     if (role == "patient"):
@@ -158,6 +158,7 @@ def adduser_pwd(msg):
     pwd = msg.text
     with bot.retrieve_data(msg.from_user.id, msg.chat.id) as adduser_data:
         adduser_data['adduser_pwd'] = pwd
+        bot.set_state(msg.from_user.id, States.adduser_final, msg.chat.id)
         bot.reply_to(
             msg, f"Performing add of the patient {adduser_data['adduser_surname']} {adduser_data['adduser_name']}")
     return ContinueHandling()
