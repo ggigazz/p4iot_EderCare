@@ -1,14 +1,29 @@
 import requests as req
 import logging
 from datetime import datetime
+import json
 
 # DB API URL AND PORT
-URL = 'adlab.m2madgenera.com'
-PORT = 4367
+def get_DB_config():
+    filename = "microservices/config.json"
+    dictionary = json.load(open(filename))
+    URL = dictionary["DB"]["URL"]
+    PORT = dictionary["DB"]["PORT"]
+
+    return URL, PORT
+URL, PORT = get_DB_config()
 
 # EMERGENCY CALL API URL AND PORT
-EMER_CALL_URL = 'alba.gotdns.ch'
-EMER_CALL_PORT = 17368
+def get_emergency_config():
+    filename = "microservices/config.json"
+    dictionary = json.load(open(filename))
+    EMER_CALL_URL = dictionary["EMERCENCY"]["URL"]
+    EMER_CALL_PORT = dictionary["EMERCENCY"]["PORT"]
+
+    return EMER_CALL_URL, EMER_CALL_PORT
+
+
+EMER_CALL_URL, EMER_CALL_PORT = get_emergency_config()
 
 # Enable logging
 logging.basicConfig(
