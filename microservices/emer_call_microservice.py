@@ -8,7 +8,7 @@ import json
 
 # EMERGENCY CALL CONFIGS
 def get_emergency_configs():
-    filename = "microservices/config.json"
+    filename = "./config.json"
     dictionary = json.load(open(filename))
     key = dictionary["EMERCENCY"]["key"]
     secret = dictionary["EMERCENCY"]["secret"]
