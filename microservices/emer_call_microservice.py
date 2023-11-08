@@ -4,12 +4,22 @@
 import requests
 from flask import Flask, request, jsonify, send_file, send_from_directory
 from waitress import serve
+import json
 
-key = "1c313da3-97a7-4a2e-bb1a-282b4336fc74"
-secret = "qvPJpiFAdUW/G0O+u7OZsg=="
-fromNumber = "+447520651976"
-locale = "it-IT"
-url = "https://calling.api.sinch.com/calling/v1/callouts"
+# EMERGENCY CALL CONFIGS
+def get_emergency_configs():
+    filename = "microservices/config.json"
+    dictionary = json.load(open(filename))
+    key = dictionary["EMERCENCY"]["key"]
+    secret = dictionary["EMERCENCY"]["secret"]
+    fromNumber = dictionary["EMERCENCY"]["fromNumber"]
+    locale = dictionary["EMERCENCY"]["locale"]
+    url = dictionary["EMERCENCY"]["url"]
+
+    return key, secret, fromNumber, locale, url
+
+
+key, secret, fromNumber, locale, url = get_emergency_configs()
 
 app = Flask(__name__)
 
