@@ -5,7 +5,7 @@ import json
 
 # DB API URL AND PORT
 def get_DB_config():
-    filename = "microservices/config.json"
+    filename = "./config.json"
     dictionary = json.load(open(filename))
     URL = dictionary["DB"]["URL"]
     PORT = dictionary["DB"]["PORT"]
@@ -15,7 +15,7 @@ URL, PORT = get_DB_config()
 
 # EMERGENCY CALL API URL AND PORT
 def get_emergency_config():
-    filename = "microservices/config.json"
+    filename = "./config.json"
     dictionary = json.load(open(filename))
     EMER_CALL_URL = dictionary["EMERCENCY"]["URL"]
     EMER_CALL_PORT = dictionary["EMERCENCY"]["PORT"]
