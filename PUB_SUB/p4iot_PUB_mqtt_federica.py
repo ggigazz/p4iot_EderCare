@@ -3,14 +3,19 @@ import paho.mqtt.client as mqtt  # import the client
 from numpy import random
 from time import sleep
 
-broker_address = "adlab.m2madgenera.com"
+# Retrieve broker port, connection username/password and API KEY
+def get_config_pub():
+    filename = "PUB_SUB/config.json"
+    dictionary = json.load(open(filename))
+    broker_address = dictionary["broker_address"]
+    port = dictionary["port"]
+    user = dictionary["user"]
+    password = dictionary["password"]
+    api_key = dictionary["api_key_F"]
 
-port = 7473  # Broker port
-user = "p4iot"  # Connection username
-password = "iotproj"  # Connection password
+    return broker_address, port, user, password, api_key
 
-# Sostituire con la chiave di scrittura del canale ThingSpeak
-api_key = 'T7YF1WP7H7AHGDYJ'
+broker_address, port, user, password, api_key = get_config_pub()
 
 print("creating new instance")
 client = mqtt.Client("MQTTClientPUBFederica",
