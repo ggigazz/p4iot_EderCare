@@ -1,0 +1,16 @@
+{
+    "DB": {
+        "URL" : "adlab.m2madgenera.com",
+        "PORT": "4367"
+    },
+    "EMERCENCY": {
+        "URL": "alba.gotdns.ch",
+        "PORT": "17368",
+        "key": "1c313da3-97a7-4a2e-bb1a-282b4336fc74",
+        "secret": "qvPJpiFAdUW/G0O+u7OZsg==",
+        "fromNumber": "+447520651976",
+        "locale": "it-IT",
+        "url" : "https://calling.api.sinch.com/calling/v1/callouts"
+    }
+          
+}
