@@ -44,7 +44,7 @@ def on_message(client, userdata, message):
 ########################################
 # Retrieve broker port, connection username/password
 def get_config_sub():
-    filename = "PUB_SUB/config.json"
+    filename = "./config.json"
     dictionary = json.load(open(filename))
     broker_address = dictionary["broker_address"]
     port = dictionary["port"]
