@@ -13,9 +13,9 @@ def get_config_pub():
     password = dictionary["password"]
     api_key = dictionary["api_key_A"]
 
-    return broker_address, port, user, password
+    return broker_address, port, user, password, api_key
 
-broker_address, port, user, password, api_key= get_config_pub()
+broker_address, port, user, password, api_key = get_config_pub()
 
 print("creating new instance")
 client = mqtt.Client("MQTTClientPUBAndrea",
