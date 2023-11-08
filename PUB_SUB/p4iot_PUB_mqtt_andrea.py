@@ -5,7 +5,7 @@ from time import sleep
 
 # Retrieve broker port, connection username/password and API KEY
 def get_config_pub():
-    filename = "PUB_SUB/config.json"
+    filename = "./config.json"
     dictionary = json.load(open(filename))
     broker_address = dictionary["broker_address"]
     port = dictionary["port"]
